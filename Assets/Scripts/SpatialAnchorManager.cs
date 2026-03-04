@@ -16,8 +16,10 @@ public class SpatialAnchorManager : MonoBehaviour
     [Header("Input")]
     public OVRInput.Button createButton = OVRInput.Button.PrimaryIndexTrigger;
     public OVRInput.Button deleteButton = OVRInput.Button.One;
+    public OVRInput.Button lockButtons = OVRInput.Button.Two;
     public OVRInput.Button toggleAnchorButton = OVRInput.Button.One;
-    public OVRInput.Button toggleLabelButton = OVRInput.Button.Two;
+    //public OVRInput.Button toggleLabelButton = OVRInput.Button.Two;
+    public OVRInput.Button saveNewAnchors = OVRInput.Button.Two;
     public OVRInput.Button changeSceneButton = OVRInput.Button.PrimaryIndexTrigger;
     
     
@@ -36,6 +38,24 @@ public class SpatialAnchorManager : MonoBehaviour
     private void ChangeScene()
     {
         SceneManager.LoadScene("ARLabelScene");
+    }
+    
+    public void LockAllButtons()
+    {
+        foreach (var instance in anchorInstances)
+        {
+            if (instance.contentObject != null)
+            {
+                BtnSpatialLabel btn = instance.contentObject.GetComponent<BtnSpatialLabel>();
+
+                if (btn != null)
+                {
+                    btn.LockButtonClick();
+                }
+            }
+        }
+
+        Debug.Log("All buttons locked again.");
     }
     
 
@@ -62,14 +82,18 @@ public class SpatialAnchorManager : MonoBehaviour
 
         if (OVRInput.GetDown(deleteButton, OVRInput.Controller.RTouch))
             DeleteAllAnchorsAsync();
+
+
+        if (OVRInput.GetDown(saveNewAnchors, OVRInput.Controller.RTouch))
+            RecreateAllAnchorsFromMarkers();
         
 
         if (OVRInput.GetDown(toggleAnchorButton, OVRInput.Controller.LTouch))
             ToggleVisuals();
         
 
-        if (OVRInput.GetDown(toggleLabelButton, OVRInput.Controller.LTouch))
-            ToggleLabelsVisuals();
+        if (OVRInput.GetDown(lockButtons, OVRInput.Controller.LTouch))
+            LockAllButtons();
         
         
         if (OVRInput.GetDown(changeSceneButton, OVRInput.Controller.LTouch))
@@ -118,7 +142,7 @@ public class SpatialAnchorManager : MonoBehaviour
             marker.transform.localRotation = Quaternion.identity;
         }
 
-        GameObject content = SpawnContentObject(anchor, id);
+        GameObject content = SpawnContentObject(anchor, marker,id);
 
         AnchorInstance instance = new AnchorInstance
         {
@@ -130,11 +154,103 @@ public class SpatialAnchorManager : MonoBehaviour
 
         anchorInstances.Add(instance);
     }
+    
+    public async void RecreateAllAnchorsFromMarkers()
+{
+    if (anchorInstances.Count == 0)
+    {
+        Debug.LogWarning("No anchors to recreate.");
+        return;
+    }
 
+    var instancesCopy = new List<AnchorInstance>(anchorInstances);
+
+    foreach (var instance in instancesCopy)
+    {
+        if (instance == null || instance.anchorMarker == null)
+            continue;
+
+        Vector3 newPos = instance.anchorMarker.transform.position;
+        Quaternion newRot = instance.anchorMarker.transform.rotation;
+
+        // 🔹 Guardar referencia del anchor viejo
+        OVRSpatialAnchor oldAnchor = instance.anchor;
+
+        // 🔹 Guardar posición actual del contenido
+        Vector3 contentWorldPos = instance.contentObject.transform.position;
+        Quaternion contentWorldRot = instance.contentObject.transform.rotation;
+
+        // 1️⃣ Crear nuevo anchor PRIMERO
+        var newAnchor = Instantiate(anchorPrefab, newPos, newRot);
+
+        while (!newAnchor.Created)
+            await Task.Yield();
+
+        var result = await newAnchor.SaveAnchorAsync();
+
+        if (!result.Success)
+        {
+            Debug.LogError("Failed to save new anchor for id: " + instance.id);
+            Destroy(newAnchor.gameObject);
+            continue;
+        }
+
+        // 2️⃣ Actualizar mapping
+        anchorUuidToId[newAnchor.Uuid] = instance.id;
+
+        // 3️⃣ Actualizar referencia en instance
+        instance.anchor = newAnchor;
+
+        // 4️⃣ Actualizar follower
+        AnchorFollower follower = instance.contentObject?.GetComponent<AnchorFollower>();
+        if (follower != null)
+        {
+            follower.targetAnchor = newAnchor;
+        }
+
+        // 5️⃣ Restaurar posición exacta del contenido
+        instance.contentObject.transform.position = contentWorldPos;
+        instance.contentObject.transform.rotation = contentWorldRot;
+        
+        
+        
+        
+        if (instance.anchorMarker != null)
+        {
+            // 1️⃣ Desacoplar del anchor viejo
+            instance.anchorMarker.transform.SetParent(newAnchor.transform);
+
+            // 2️⃣ Reposicionar al nuevo anchor
+            instance.anchorMarker.transform.position = newPos;
+           instance.anchorMarker.transform.rotation = newRot;
+           
+           
+         //  instance.anchorMarker.transform.localPosition = Vector3.zero;
+         //  instance.anchorMarker.transform.localRotation = Quaternion.identity;
+        //   instance.anchorMarker.transform.localScale = Vector3.one;
+
+            // 3️⃣ Escala y visibilidad
+            instance.anchorMarker.SetActive(true);
+        }
+
+        // 6️⃣ Ahora sí borrar anchor viejo
+        if (oldAnchor != null)
+        {
+            await oldAnchor.EraseAnchorAsync();
+            anchorUuidToId.Remove(oldAnchor.Uuid);
+            Destroy(oldAnchor.gameObject);
+        }
+        
+    }
+
+    SaveAnchorUuidToIdMapping();
+
+    Debug.Log("All anchors recreated and aligned correctly.");
+}
     // =====================================================
     // SPAWN CONTENT (Compatible ISDK)
     // =====================================================
-    GameObject SpawnContentObject(OVRSpatialAnchor anchor, int id)
+    GameObject SpawnContentObject(OVRSpatialAnchor anchor,GameObject anchorMarker, int id)
     {
         AnchorObjectData data = GetDataById(id);
 
@@ -145,6 +261,17 @@ public class SpatialAnchorManager : MonoBehaviour
         }
 
         GameObject obj = Instantiate(data.prefab);
+        
+        BtnSpatialLabel btnScript = obj.GetComponent<BtnSpatialLabel>();
+
+        if (btnScript != null)
+        {
+            btnScript.Configure(
+                data.labelSpanish,
+                data.labelEnglish,
+                data.audioClip
+            );
+        }
 
         float heightOffset = 0.04f;
 
@@ -226,6 +353,7 @@ public class SpatialAnchorManager : MonoBehaviour
     // =====================================================
     // LOAD ANCHORS
     // =====================================================
+    /*
     async void LoadAnchorsAsync()
     {
         if (anchorUuidToId.Count == 0)
@@ -261,8 +389,67 @@ public class SpatialAnchorManager : MonoBehaviour
                 marker.transform.localRotation = Quaternion.identity;
             }
 
-            GameObject content = SpawnContentObject(anchor, id);
+            GameObject content = SpawnContentObject(anchor,marker, id);
 
+            AnchorInstance instance = new AnchorInstance
+            {
+                anchor = anchor,
+                anchorMarker = marker,
+                contentObject = content,
+                id = id
+            };
+
+            anchorInstances.Add(instance);
+        }
+    }*/
+    
+    
+    async void LoadAnchorsAsync()
+    {
+        if (anchorUuidToId.Count == 0)
+            return;
+
+        var loadOptions = new OVRSpatialAnchor.LoadOptions
+        {
+            Uuids = new List<System.Guid>(anchorUuidToId.Keys).ToArray()
+        };
+
+        var unboundAnchors =
+            await OVRSpatialAnchor.LoadUnboundAnchorsAsync(loadOptions);
+
+        if (unboundAnchors == null)
+            return;
+
+        foreach (var unbound in unboundAnchors)
+        {
+            GameObject go = new GameObject("LoadedAnchor_" + unbound.Uuid);
+            var anchor = go.AddComponent<OVRSpatialAnchor>();
+            unbound.BindTo(anchor);
+
+            int id = GetIdForAnchor(unbound.Uuid);
+
+            // 1️⃣ Instanciar marker
+            GameObject marker = null;
+            if (anchorMarkerPrefab != null)
+            {
+                marker = Instantiate(anchorMarkerPrefab, anchor.transform);
+                marker.transform.position = anchor.transform.position;
+                marker.transform.rotation = anchor.transform.rotation;
+             
+                marker.SetActive(true);
+            }
+
+            // 2️⃣ Instanciar contenido
+            GameObject content = SpawnContentObject(anchor, marker, id);
+
+            // 3️⃣ Activar todo para asegurar que se vea
+            if (marker != null)
+                marker.SetActive(true);
+
+            if (content != null)
+                content.SetActive(true);
+
+            // 4️⃣ Registrar instance
             AnchorInstance instance = new AnchorInstance
             {
                 anchor = anchor,

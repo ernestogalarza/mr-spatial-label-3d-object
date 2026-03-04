@@ -177,7 +177,16 @@ public class ObjectAnchorManager : MonoBehaviour
 
         GameObject obj = Instantiate(data.prefab);
         
-        
+        BtnSpatialLabel btnScript = obj.GetComponent<BtnSpatialLabel>();
+
+        if (btnScript != null)
+        {
+            btnScript.Configure(
+                data.labelSpanish,
+                data.labelEnglish,
+                data.audioClip
+            );
+        }
         // 2. Calculamos los offsets basados en el porcentaje
         float heightOffset = 0.1f;
         float forwardOffset = -0.2f;

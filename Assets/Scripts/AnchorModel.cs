@@ -7,6 +7,12 @@ public class AnchorObjectData
     public int id;
     public GameObject prefab; 
     
+    [Header("UI Config")]
+    public string labelSpanish;
+    public string labelEnglish;
+    public Sprite iconSprite;
+    public AudioClip audioClip;
+    
     [HideInInspector]
     public GameObject spawnedObject;
 }

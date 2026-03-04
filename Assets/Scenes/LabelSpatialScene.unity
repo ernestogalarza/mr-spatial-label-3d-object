@@ -1323,52 +1323,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpatialAnchorManager
   anchorPrefab: {fileID: 451088767745033400, guid: ebd3d7f949900426894a5ee16cb410bc, type: 3}
-  anchorMarkerPrefab: {fileID: 6535706557868114070, guid: d1fa8092a5bd34699b8eede9cb228f22, type: 3}
+  anchorMarkerPrefab: {fileID: 2985657336567850728, guid: d4502616bfaa9445f89fa0aaaeb9e09a, type: 3}
   anchorObjects:
   - id: 1
-    prefab: {fileID: 4761324570144576199, guid: a15afdbc9b3684a63b4e0a24432bdd61, type: 3}
+    prefab: {fileID: 2552934105545299049, guid: 6340ad3f286c245f1bf546eddfea6c7b, type: 3}
+    labelSpanish: LAPICERO
+    labelEnglish: PEN
+    iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
+    audioClip: {fileID: 8300000, guid: f5f2ab441cc7c48528c1062c26543255, type: 3}
+    spawnedObject: {fileID: 0}
   - id: 2
-    prefab: {fileID: 4761324570144576199, guid: 9bffc61c908aa43e283e0581194bd2a6, type: 3}
+    prefab: {fileID: 2552934105545299049, guid: 6340ad3f286c245f1bf546eddfea6c7b, type: 3}
+    labelSpanish: COMPUTADORA
+    labelEnglish: COMPUTER
+    iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
+    audioClip: {fileID: 8300000, guid: dbf56838f10d64bc5b8836e7199578d2, type: 3}
+    spawnedObject: {fileID: 0}
   - id: 3
-    prefab: {fileID: 4761324570144576199, guid: 234ebea74f5b54735bb5b8e8e0be88b9, type: 3}
-  - id: 4
-    prefab: {fileID: 4761324570144576199, guid: e81f7220296be45c0826bb7a851c855a, type: 3}
-  - id: 5
-    prefab: {fileID: 4761324570144576199, guid: cd2123f3eda3c4d23a53dd11d249a928, type: 3}
-  - id: 6
-    prefab: {fileID: 4761324570144576199, guid: 603b7bc09afeb4d6c840d8c2f7701a66, type: 3}
-  - id: 7
-    prefab: {fileID: 4761324570144576199, guid: 83356e14c04524c8badbb780149bad3f, type: 3}
-  - id: 8
-    prefab: {fileID: 4761324570144576199, guid: b5f066292816540c5b84ae7f3bfdf6df, type: 3}
-  - id: 9
-    prefab: {fileID: 4761324570144576199, guid: b5f066292816540c5b84ae7f3bfdf6df, type: 3}
-  - id: 10
-    prefab: {fileID: 4761324570144576199, guid: b7c6a40de19044819b8f4f9726ab5be4, type: 3}
-  - id: 11
-    prefab: {fileID: 4761324570144576199, guid: 2cb498c3a955146659ea57e20e614d53, type: 3}
-  - id: 12
-    prefab: {fileID: 4761324570144576199, guid: ce0ac8735123d42ed9de46ff57875e94, type: 3}
-  - id: 13
-    prefab: {fileID: 4761324570144576199, guid: 318e11902244841e191f9426581c32c5, type: 3}
-  - id: 14
-    prefab: {fileID: 4761324570144576199, guid: d2aa4f597e8064283bd284a2ab769191, type: 3}
-  - id: 15
-    prefab: {fileID: 4761324570144576199, guid: bf9387783321a49099bc411050a7ccd8, type: 3}
-  - id: 16
-    prefab: {fileID: 4761324570144576199, guid: c3a3687872eae48a4a2db14b72f05aa3, type: 3}
-  - id: 17
-    prefab: {fileID: 4761324570144576199, guid: 8101b6a5ad1a84c12aefff41d8ac9832, type: 3}
-  - id: 18
-    prefab: {fileID: 4761324570144576199, guid: 83356e14c04524c8badbb780149bad3f, type: 3}
-  - id: 19
-    prefab: {fileID: 4761324570144576199, guid: b5f066292816540c5b84ae7f3bfdf6df, type: 3}
-  - id: 20
-    prefab: {fileID: 4761324570144576199, guid: b7c6a40de19044819b8f4f9726ab5be4, type: 3}
+    prefab: {fileID: 2552934105545299049, guid: 6340ad3f286c245f1bf546eddfea6c7b, type: 3}
+    labelSpanish: TENEDOR
+    labelEnglish: FORK
+    iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
+    audioClip: {fileID: 8300000, guid: a9cf4d074b57d493cb58644670d34946, type: 3}
+    spawnedObject: {fileID: 0}
   rightController: {fileID: 43597611}
   createButton: 8192
-  toggleButton: 16384
   deleteButton: 1
+  lockButtons: 2
+  toggleAnchorButton: 1
+  saveNewAnchors: 2
+  changeSceneButton: 8192
 --- !u!4 &105717800
 Transform:
   m_ObjectHideFlags: 0
