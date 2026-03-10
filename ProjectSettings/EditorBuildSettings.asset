@@ -8,12 +8,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/ARLabelScene.unity
     guid: 24a732d1e16e148eab085d6629e81b66
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LabelSpatialScene.unity
     guid: 4fad41cbf6d86475c98064cb4e135142
   - enabled: 0
     path: Assets/Scenes/TestScene.unity
     guid: 54da26d4dd66e4b2998d47bdf5569750
+  - enabled: 0
+    path: Assets/Scenes/SpatialLabelScene.unity
+    guid: 18ede0020663343a8af3d9c5e75b8a81
+  - enabled: 1
+    path: Assets/Scenes/ObjectAugmentationScene.unity
+    guid: d6b54b2e2c6d840ee841a917f7871506
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 73da019042724445e9630f642a9f47b0, type: 2}

@@ -18,6 +18,13 @@ public class AnchorObjectData
 }
 
 [System.Serializable]
+public class AnchorObjectAugmentationData : AnchorObjectData
+{
+    [Header("3D Object")]
+    public GameObject objectAugmentation;
+}
+
+[System.Serializable]
 public class PersistedAnchorInfo
 {
     public string uuid;
@@ -35,8 +42,10 @@ public class AnchorInstance
 {
     public OVRSpatialAnchor anchor;      // Anchor lógico
     public GameObject anchorMarker;      // Prefab visual del anchor
-    public GameObject contentObject;     // Objeto del array
+    public GameObject contentObject;     // Button Label del array
+    public GameObject objectAugmentation;     // Button Label del array
     public int id;                       // ID del objeto
+    public string sceneName;
 }
 
 

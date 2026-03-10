@@ -18,7 +18,6 @@ public class SpatialAnchorManager : MonoBehaviour
     public OVRInput.Button deleteButton = OVRInput.Button.One;
     public OVRInput.Button lockButtons = OVRInput.Button.Two;
     public OVRInput.Button toggleAnchorButton = OVRInput.Button.One;
-    //public OVRInput.Button toggleLabelButton = OVRInput.Button.Two;
     public OVRInput.Button saveNewAnchors = OVRInput.Button.Two;
     public OVRInput.Button changeSceneButton = OVRInput.Button.PrimaryIndexTrigger;
     
@@ -149,7 +148,8 @@ public class SpatialAnchorManager : MonoBehaviour
             anchor = anchor,
             anchorMarker = marker,
             contentObject = content,
-            id = id
+            id = id,
+            sceneName = SceneManager.GetActiveScene().name
         };
 
         anchorInstances.Add(instance);
@@ -223,11 +223,6 @@ public class SpatialAnchorManager : MonoBehaviour
             // 2️⃣ Reposicionar al nuevo anchor
             instance.anchorMarker.transform.position = newPos;
            instance.anchorMarker.transform.rotation = newRot;
-           
-           
-         //  instance.anchorMarker.transform.localPosition = Vector3.zero;
-         //  instance.anchorMarker.transform.localRotation = Quaternion.identity;
-        //   instance.anchorMarker.transform.localScale = Vector3.one;
 
             // 3️⃣ Escala y visibilidad
             instance.anchorMarker.SetActive(true);
@@ -353,58 +348,7 @@ public class SpatialAnchorManager : MonoBehaviour
     // =====================================================
     // LOAD ANCHORS
     // =====================================================
-    /*
-    async void LoadAnchorsAsync()
-    {
-        if (anchorUuidToId.Count == 0)
-            return;
-
-        var loadOptions = new OVRSpatialAnchor.LoadOptions
-        {
-            Uuids = new List<System.Guid>(anchorUuidToId.Keys).ToArray()
-        };
-
-        var unboundAnchors =
-            await OVRSpatialAnchor.LoadUnboundAnchorsAsync(loadOptions);
-
-        if (unboundAnchors == null)
-            return;
-
-        foreach (var unbound in unboundAnchors)
-        {
-            GameObject go =
-                new GameObject("LoadedAnchor_" + unbound.Uuid);
-
-            var anchor = go.AddComponent<OVRSpatialAnchor>();
-            unbound.BindTo(anchor);
-
-            int id = GetIdForAnchor(unbound.Uuid);
-
-            GameObject marker = null;
-
-            if (anchorMarkerPrefab != null)
-            {
-                marker = Instantiate(anchorMarkerPrefab, anchor.transform);
-                marker.transform.localPosition = Vector3.zero;
-                marker.transform.localRotation = Quaternion.identity;
-            }
-
-            GameObject content = SpawnContentObject(anchor,marker, id);
-
-            AnchorInstance instance = new AnchorInstance
-            {
-                anchor = anchor,
-                anchorMarker = marker,
-                contentObject = content,
-                id = id
-            };
-
-            anchorInstances.Add(instance);
-        }
-    }*/
-    
-    
-    async void LoadAnchorsAsync()
+     async void LoadAnchorsAsync()
     {
         if (anchorUuidToId.Count == 0)
             return;
