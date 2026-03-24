@@ -242,7 +242,7 @@ public class ObjectAugmentationManager : BaseAnchorManager
 
     private void ChangeScene()
     {
-        SceneManager.LoadScene("ARLabelScene");
+        SceneManager.LoadScene("SpatialLabelScene");
     }
 
     // =====================================================

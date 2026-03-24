@@ -158,7 +158,7 @@ public class SpatialLabelManager : BaseAnchorManager
     
     private void ChangeScene()
     {
-        SceneManager.LoadScene("ARLabelScene");
+        SceneManager.LoadScene("ObjectAugmentationScene");
     }
     
     public async void CreateAnchorAsync()

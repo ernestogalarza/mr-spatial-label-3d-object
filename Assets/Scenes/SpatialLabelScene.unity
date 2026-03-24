@@ -1302,7 +1302,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 105717800}
-  - component: {fileID: 105717799}
   - component: {fileID: 105717801}
   m_Layer: 0
   m_Name: SpatialLabelManager
@@ -1311,49 +1310,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &105717799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105717798}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6054a3b58d0e144dbad7eaeea788863d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpatialAnchorManager
-  anchorPrefab: {fileID: 451088767745033400, guid: ebd3d7f949900426894a5ee16cb410bc, type: 3}
-  anchorMarkerPrefab: {fileID: 2985657336567850728, guid: d4502616bfaa9445f89fa0aaaeb9e09a, type: 3}
-  anchorObjects:
-  - id: 1
-    prefab: {fileID: 2552934105545299049, guid: 6340ad3f286c245f1bf546eddfea6c7b, type: 3}
-    labelSpanish: LAPICERO
-    labelEnglish: PEN
-    iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
-    audioClip: {fileID: 8300000, guid: f5f2ab441cc7c48528c1062c26543255, type: 3}
-    spawnedObject: {fileID: 0}
-  - id: 2
-    prefab: {fileID: 2552934105545299049, guid: 6340ad3f286c245f1bf546eddfea6c7b, type: 3}
-    labelSpanish: COMPUTADORA
-    labelEnglish: COMPUTER
-    iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
-    audioClip: {fileID: 8300000, guid: dbf56838f10d64bc5b8836e7199578d2, type: 3}
-    spawnedObject: {fileID: 0}
-  - id: 3
-    prefab: {fileID: 2552934105545299049, guid: 6340ad3f286c245f1bf546eddfea6c7b, type: 3}
-    labelSpanish: TENEDOR
-    labelEnglish: FORK
-    iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
-    audioClip: {fileID: 8300000, guid: a9cf4d074b57d493cb58644670d34946, type: 3}
-    spawnedObject: {fileID: 0}
-  rightController: {fileID: 43597611}
-  createButton: 8192
-  deleteButton: 1
-  lockButtons: 2
-  toggleAnchorButton: 1
-  saveNewAnchors: 2
-  changeSceneButton: 8192
 --- !u!4 &105717800
 Transform:
   m_ObjectHideFlags: 0
@@ -1390,28 +1346,84 @@ MonoBehaviour:
     labelSpanish: COMPUTADORA
     labelEnglish: COMPUTER
     iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
-    audioClip: {fileID: 8300000, guid: f5f2ab441cc7c48528c1062c26543255, type: 3}
+    audioClip: {fileID: 8300000, guid: eefbbecf937664e3cba493aa3f460652, type: 3}
     spawnedObject: {fileID: 0}
   - id: 2
     prefab: {fileID: 2552934105545299049, guid: 6340ad3f286c245f1bf546eddfea6c7b, type: 3}
-    labelSpanish: LAPICERO
-    labelEnglish: PEN
+    labelSpanish: TECLADO
+    labelEnglish: KEYBOARD
     iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
-    audioClip: {fileID: 8300000, guid: dbf56838f10d64bc5b8836e7199578d2, type: 3}
+    audioClip: {fileID: 8300000, guid: 0c8cf0c8b03ae4c6cb82b582dffadb9c, type: 3}
     spawnedObject: {fileID: 0}
   - id: 3
     prefab: {fileID: 2552934105545299049, guid: 6340ad3f286c245f1bf546eddfea6c7b, type: 3}
-    labelSpanish: GASEOSA
-    labelEnglish: SODA
+    labelSpanish: CELULAR
+    labelEnglish: CELLPHONE
     iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
-    audioClip: {fileID: 8300000, guid: 073ac19b1550f4e32b8112064f0c26cf, type: 3}
+    audioClip: {fileID: 8300000, guid: c8afc867e60d2444994b2626face2919, type: 3}
     spawnedObject: {fileID: 0}
   - id: 4
     prefab: {fileID: 2552934105545299049, guid: 6340ad3f286c245f1bf546eddfea6c7b, type: 3}
-    labelSpanish: TENEDOR
-    labelEnglish: FORK
+    labelSpanish: LENTES
+    labelEnglish: GLASSES
     iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
-    audioClip: {fileID: 8300000, guid: 073ac19b1550f4e32b8112064f0c26cf, type: 3}
+    audioClip: {fileID: 8300000, guid: 638f7283094b742e0bc2bc00f4dd97dd, type: 3}
+    spawnedObject: {fileID: 0}
+  - id: 5
+    prefab: {fileID: 2552934105545299049, guid: 6340ad3f286c245f1bf546eddfea6c7b, type: 3}
+    labelSpanish: CUADERNO
+    labelEnglish: NOTEBOOK
+    iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
+    audioClip: {fileID: 8300000, guid: 7819033a1da6a489f8b8d257e740ac6d, type: 3}
+    spawnedObject: {fileID: 0}
+  - id: 6
+    prefab: {fileID: 2552934105545299049, guid: 6340ad3f286c245f1bf546eddfea6c7b, type: 3}
+    labelSpanish: TAZA
+    labelEnglish: CUP
+    iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
+    audioClip: {fileID: 8300000, guid: 8480b5abdc098420b93800b55c174208, type: 3}
+    spawnedObject: {fileID: 0}
+  - id: 7
+    prefab: {fileID: 2552934105545299049, guid: 6340ad3f286c245f1bf546eddfea6c7b, type: 3}
+    labelSpanish: RATON
+    labelEnglish: MOUSE
+    iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
+    audioClip: {fileID: 8300000, guid: 04057ba27cfa44d838de272f5e32ea50, type: 3}
+    spawnedObject: {fileID: 0}
+  - id: 8
+    prefab: {fileID: 2552934105545299049, guid: 6340ad3f286c245f1bf546eddfea6c7b, type: 3}
+    labelSpanish: CAMARA
+    labelEnglish: CAMERA
+    iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
+    audioClip: {fileID: 8300000, guid: ffdcf0754fa6041dea2978bcbf346572, type: 3}
+    spawnedObject: {fileID: 0}
+  - id: 9
+    prefab: {fileID: 2552934105545299049, guid: 6340ad3f286c245f1bf546eddfea6c7b, type: 3}
+    labelSpanish: GORRA
+    labelEnglish: HAT
+    iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
+    audioClip: {fileID: 8300000, guid: 96702abbe05b64cbfa1117ede4d08e5e, type: 3}
+    spawnedObject: {fileID: 0}
+  - id: 10
+    prefab: {fileID: 2552934105545299049, guid: 6340ad3f286c245f1bf546eddfea6c7b, type: 3}
+    labelSpanish: TIJERA
+    labelEnglish: SCISSOR
+    iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
+    audioClip: {fileID: 8300000, guid: bfb47526aaa9a4af3aa1c1640b8097cc, type: 3}
+    spawnedObject: {fileID: 0}
+  - id: 11
+    prefab: {fileID: 2552934105545299049, guid: 6340ad3f286c245f1bf546eddfea6c7b, type: 3}
+    labelSpanish: LLAVERO
+    labelEnglish: KEY CHAIN
+    iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
+    audioClip: {fileID: 8300000, guid: a697834fa05bf4f368ba6d1a822fdf8a, type: 3}
+    spawnedObject: {fileID: 0}
+  - id: 12
+    prefab: {fileID: 2552934105545299049, guid: 6340ad3f286c245f1bf546eddfea6c7b, type: 3}
+    labelSpanish: BOLIGRAFO
+    labelEnglish: PEN
+    iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
+    audioClip: {fileID: 8300000, guid: 5f79d839462c74c109fe509f0755d5b7, type: 3}
     spawnedObject: {fileID: 0}
   createButton: 8192
   deleteButton: 1
