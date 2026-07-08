@@ -1392,10 +1392,10 @@ MonoBehaviour:
     spawnedObject: {fileID: 0}
   - id: 8
     prefab: {fileID: 2552934105545299049, guid: 6340ad3f286c245f1bf546eddfea6c7b, type: 3}
-    labelSpanish: CAMARA
-    labelEnglish: CAMERA
+    labelSpanish: CUCHARA
+    labelEnglish: SPOON
     iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
-    audioClip: {fileID: 8300000, guid: ffdcf0754fa6041dea2978bcbf346572, type: 3}
+    audioClip: {fileID: 8300000, guid: a9cf4d074b57d493cb58644670d34946, type: 3}
     spawnedObject: {fileID: 0}
   - id: 9
     prefab: {fileID: 2552934105545299049, guid: 6340ad3f286c245f1bf546eddfea6c7b, type: 3}
