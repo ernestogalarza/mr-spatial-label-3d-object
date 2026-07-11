@@ -1385,40 +1385,40 @@ MonoBehaviour:
     spawnedObject: {fileID: 0}
   - id: 7
     prefab: {fileID: 2552934105545299049, guid: 6340ad3f286c245f1bf546eddfea6c7b, type: 3}
-    labelSpanish: RATON
-    labelEnglish: MOUSE
-    iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
-    audioClip: {fileID: 8300000, guid: 04057ba27cfa44d838de272f5e32ea50, type: 3}
-    spawnedObject: {fileID: 0}
-  - id: 8
-    prefab: {fileID: 2552934105545299049, guid: 6340ad3f286c245f1bf546eddfea6c7b, type: 3}
     labelSpanish: CUCHARA
     labelEnglish: SPOON
     iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
     audioClip: {fileID: 8300000, guid: a9cf4d074b57d493cb58644670d34946, type: 3}
     spawnedObject: {fileID: 0}
-  - id: 9
+  - id: 8
     prefab: {fileID: 2552934105545299049, guid: 6340ad3f286c245f1bf546eddfea6c7b, type: 3}
     labelSpanish: GORRA
     labelEnglish: HAT
     iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
     audioClip: {fileID: 8300000, guid: 96702abbe05b64cbfa1117ede4d08e5e, type: 3}
     spawnedObject: {fileID: 0}
-  - id: 10
+  - id: 9
     prefab: {fileID: 2552934105545299049, guid: 6340ad3f286c245f1bf546eddfea6c7b, type: 3}
     labelSpanish: TIJERA
     labelEnglish: SCISSOR
     iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
     audioClip: {fileID: 8300000, guid: bfb47526aaa9a4af3aa1c1640b8097cc, type: 3}
     spawnedObject: {fileID: 0}
-  - id: 11
+  - id: 10
     prefab: {fileID: 2552934105545299049, guid: 6340ad3f286c245f1bf546eddfea6c7b, type: 3}
     labelSpanish: LLAVERO
     labelEnglish: KEY CHAIN
     iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
     audioClip: {fileID: 8300000, guid: a697834fa05bf4f368ba6d1a822fdf8a, type: 3}
     spawnedObject: {fileID: 0}
-  - id: 12
+  - id: 11
+    prefab: {fileID: 2552934105545299049, guid: 6340ad3f286c245f1bf546eddfea6c7b, type: 3}
+    labelSpanish: BOLIGRAFO
+    labelEnglish: PEN
+    iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
+    audioClip: {fileID: 8300000, guid: 5f79d839462c74c109fe509f0755d5b7, type: 3}
+    spawnedObject: {fileID: 0}
+  - id: 11
     prefab: {fileID: 2552934105545299049, guid: 6340ad3f286c245f1bf546eddfea6c7b, type: 3}
     labelSpanish: BOLIGRAFO
     labelEnglish: PEN

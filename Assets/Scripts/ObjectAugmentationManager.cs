@@ -81,7 +81,8 @@ public class ObjectAugmentationManager : BaseAnchorManager
                 data.audioClip,
                 data.objectAugmentation,
                 anchor,
-                instance
+                instance,
+                data.upPosition,data.rotationPosition
             );
         }
 

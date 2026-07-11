@@ -21,9 +21,11 @@ public class MenuManager : MonoBehaviour
 
     public void LoadSpatialLabelScene()
     {
-        Debug.Log("==Spatial label");
+        // Antes de cambiar de escena, enviamos el ID actual
         if (TelemetryManager.Instance != null)
         {
+            // Forzamos la sincronización antes de cambiar
+            TelemetryManager.Instance.SetParticipantID(currentParticipant.ToString()); 
             TelemetryManager.Instance.currentCondition = "Condition_A_SpatialLabel";
             TelemetryManager.Instance.LogEvent("Inicio_Prueba", "Escena_Cargada");
         }
@@ -36,6 +38,7 @@ public class MenuManager : MonoBehaviour
         // 2. Opcional pero recomendado: Registramos qué condición va a empezar
         if (TelemetryManager.Instance != null)
         {
+            TelemetryManager.Instance.SetParticipantID(currentParticipant.ToString()); 
             TelemetryManager.Instance.currentCondition = "Condition_B_3DObject";
             TelemetryManager.Instance.LogEvent("Inicio_Prueba", "Escena_Cargada");
         }

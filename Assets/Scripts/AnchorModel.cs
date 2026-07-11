@@ -22,6 +22,9 @@ public class AnchorObjectAugmentationData : AnchorObjectData
 {
     [Header("3D Object")]
     public GameObject objectAugmentation;
+
+    public float upPosition=0.08f;
+    public float rotationPosition=0;
 }
 
 [System.Serializable]

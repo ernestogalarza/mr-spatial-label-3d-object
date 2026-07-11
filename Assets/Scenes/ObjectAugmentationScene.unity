@@ -1349,6 +1349,8 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: b3e3203abfd5b4a51b72acc9a281baaf, type: 3}
     spawnedObject: {fileID: 0}
     objectAugmentation: {fileID: 7229329706144623999, guid: a125a2e46f3934255939a213db7b0144, type: 3}
+    upPosition: 0.1
+    rotationPosition: 180
   - id: 2
     prefab: {fileID: 2552934105545299049, guid: a12d1817ed5224e4b8d3bc64937ff1c4, type: 3}
     labelSpanish: LECHE
@@ -1357,23 +1359,19 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 5c24294c34be644f7af0e5a311937cf1, type: 3}
     spawnedObject: {fileID: 0}
     objectAugmentation: {fileID: 2270730327733846497, guid: f97dc607a89de465696e8fe1e88b4029, type: 3}
+    upPosition: 0
+    rotationPosition: 0
   - id: 3
     prefab: {fileID: 2552934105545299049, guid: a12d1817ed5224e4b8d3bc64937ff1c4, type: 3}
-    labelSpanish: ESPEJO
-    labelEnglish: MIRROR
-    iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
-    audioClip: {fileID: 8300000, guid: 835cf3b2f8ea047d2aa501381c420686, type: 3}
-    spawnedObject: {fileID: 0}
-    objectAugmentation: {fileID: 2672987160685708409, guid: b951ba9be2cf74c22a46e6723d6a2183, type: 3}
-  - id: 4
-    prefab: {fileID: 4529538166321666086, guid: 8f99c766fbb194f62a69902f3fa68a91, type: 3}
     labelSpanish: SILLA
     labelEnglish: CHAIR
     iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
     audioClip: {fileID: 8300000, guid: fa5df19ad31ec4a7ebc8cd113e5c6615, type: 3}
     spawnedObject: {fileID: 0}
     objectAugmentation: {fileID: 4529538166321666086, guid: 8f99c766fbb194f62a69902f3fa68a91, type: 3}
-  - id: 5
+    upPosition: 0
+    rotationPosition: 180
+  - id: 4
     prefab: {fileID: 2552934105545299049, guid: a12d1817ed5224e4b8d3bc64937ff1c4, type: 3}
     labelSpanish: PELOTA
     labelEnglish: BALL
@@ -1381,7 +1379,9 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 1e0585b5c9d344711934064b328223d9, type: 3}
     spawnedObject: {fileID: 0}
     objectAugmentation: {fileID: 1225867477896565441, guid: ebc6f6483f2bf4e59abf0e21312ebffe, type: 3}
-  - id: 6
+    upPosition: 0.2
+    rotationPosition: 0
+  - id: 5
     prefab: {fileID: 2552934105545299049, guid: a12d1817ed5224e4b8d3bc64937ff1c4, type: 3}
     labelSpanish: CAMA
     labelEnglish: BED
@@ -1389,7 +1389,9 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: d4ab293d07639440e8699b8a0ed8bf6e, type: 3}
     spawnedObject: {fileID: 0}
     objectAugmentation: {fileID: 255834160052290762, guid: 43ae7f6c66d5442cf8f5b8e8d8aedda2, type: 3}
-  - id: 7
+    upPosition: 0
+    rotationPosition: 90
+  - id: 6
     prefab: {fileID: 2552934105545299049, guid: a12d1817ed5224e4b8d3bc64937ff1c4, type: 3}
     labelSpanish: ZANAHORIA
     labelEnglish: CARROT
@@ -1397,7 +1399,9 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 19996ebc654904a178d5bc6963ad5501, type: 3}
     spawnedObject: {fileID: 0}
     objectAugmentation: {fileID: 5895064306433216831, guid: 2bc4cf4b4187341798488f2fa4049d92, type: 3}
-  - id: 8
+    upPosition: 0
+    rotationPosition: 0
+  - id: 7
     prefab: {fileID: 2552934105545299049, guid: a12d1817ed5224e4b8d3bc64937ff1c4, type: 3}
     labelSpanish: PELUCHE
     labelEnglish: TEDDY BEAR
@@ -1405,7 +1409,9 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: e3755a56d0e0541dabfdd79fa3b84270, type: 3}
     spawnedObject: {fileID: 0}
     objectAugmentation: {fileID: 228714187290478983, guid: 2087d22ceb0294eb09128dd05f23257c, type: 3}
-  - id: 9
+    upPosition: 0
+    rotationPosition: 0
+  - id: 8
     prefab: {fileID: 2552934105545299049, guid: a12d1817ed5224e4b8d3bc64937ff1c4, type: 3}
     labelSpanish: PLATO
     labelEnglish: PLATE
@@ -1413,7 +1419,9 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 541e9f47b5c0b4eafab5fc1f7c35f340, type: 3}
     spawnedObject: {fileID: 0}
     objectAugmentation: {fileID: 1846075472742062608, guid: c61b9767219ca45c0897f7f8d39f1adb, type: 3}
-  - id: 10
+    upPosition: 0
+    rotationPosition: 0
+  - id: 9
     prefab: {fileID: 2552934105545299049, guid: a12d1817ed5224e4b8d3bc64937ff1c4, type: 3}
     labelSpanish: QUESO
     labelEnglish: CHEESE
@@ -1421,7 +1429,9 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 9d428a2a39a2a40f58529bf19793ab5d, type: 3}
     spawnedObject: {fileID: 0}
     objectAugmentation: {fileID: 1706628355572118923, guid: c3bb5a3985cba49b987578a167db1c9c, type: 3}
-  - id: 11
+    upPosition: 0
+    rotationPosition: 0
+  - id: 10
     prefab: {fileID: 2552934105545299049, guid: a12d1817ed5224e4b8d3bc64937ff1c4, type: 3}
     labelSpanish: LAMPARA
     labelEnglish: LAMP
@@ -1429,7 +1439,9 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 561a3f2c318c64096b038d1367f253f3, type: 3}
     spawnedObject: {fileID: 0}
     objectAugmentation: {fileID: 7981112182172678224, guid: fbabd889cea06441a9fe14f60348cfb4, type: 3}
-  - id: 12
+    upPosition: 0
+    rotationPosition: 0
+  - id: 11
     prefab: {fileID: 2552934105545299049, guid: a12d1817ed5224e4b8d3bc64937ff1c4, type: 3}
     labelSpanish: MANZANA
     labelEnglish: APPLE
@@ -1437,14 +1449,18 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 98d5c976c52394e7bbf583e901fc5a26, type: 3}
     spawnedObject: {fileID: 0}
     objectAugmentation: {fileID: 77696879968049407, guid: 164a84c41f8204a01a49006f2ebeaaf6, type: 3}
+    upPosition: 0
+    rotationPosition: 0
   - id: 12
     prefab: {fileID: 2552934105545299049, guid: a12d1817ed5224e4b8d3bc64937ff1c4, type: 3}
-    labelSpanish: MANZANA
-    labelEnglish: APPLE
+    labelSpanish: JUGUETE
+    labelEnglish: TOY
     iconSprite: {fileID: 5764360844435468411, guid: 64f884351318b694f942625580e64a8b, type: 3}
-    audioClip: {fileID: 8300000, guid: 98d5c976c52394e7bbf583e901fc5a26, type: 3}
+    audioClip: {fileID: 8300000, guid: 163eef9ef95a44e14a8a196916e21ef8, type: 3}
     spawnedObject: {fileID: 0}
-    objectAugmentation: {fileID: 77696879968049407, guid: 164a84c41f8204a01a49006f2ebeaaf6, type: 3}
+    objectAugmentation: {fileID: 37735603612133605, guid: 45515a92ce04d44dfaaaa284227a8337, type: 3}
+    upPosition: 0
+    rotationPosition: 0
   createButton: 8192
   deleteButton: 1
   lockButtons: 2
@@ -28008,6 +28024,63 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
+--- !u!1001 &2121388750
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1561792138376709817, guid: a125a2e46f3934255939a213db7b0144, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.3533686
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561792138376709817, guid: a125a2e46f3934255939a213db7b0144, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561792138376709817, guid: a125a2e46f3934255939a213db7b0144, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.17905904
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561792138376709817, guid: a125a2e46f3934255939a213db7b0144, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.023171388
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561792138376709817, guid: a125a2e46f3934255939a213db7b0144, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561792138376709817, guid: a125a2e46f3934255939a213db7b0144, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9997316
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561792138376709817, guid: a125a2e46f3934255939a213db7b0144, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561792138376709817, guid: a125a2e46f3934255939a213db7b0144, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561792138376709817, guid: a125a2e46f3934255939a213db7b0144, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 177.345
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561792138376709817, guid: a125a2e46f3934255939a213db7b0144, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7229329706144623999, guid: a125a2e46f3934255939a213db7b0144, type: 3}
+      propertyPath: m_Name
+      value: mircrowave
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a125a2e46f3934255939a213db7b0144, type: 3}
 --- !u!1 &2124135859
 GameObject:
   m_ObjectHideFlags: 0
@@ -28789,3 +28862,4 @@ SceneRoots:
   - {fileID: 5385633698577071875}
   - {fileID: 2145407489}
   - {fileID: 463657589}
+  - {fileID: 2121388750}

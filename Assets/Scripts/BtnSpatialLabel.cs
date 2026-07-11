@@ -40,6 +40,13 @@ public class BtnSpatialLabel : MonoBehaviour
         
         if (audioClip != null)
             audioSource.PlayOneShot(audioClip);
+        
+        Debug.Log("Botón presionado");
+        
+        if (TelemetryManager.Instance != null)
+        {
+            TelemetryManager.Instance.LogEvent("Click_Boton", this.gameObject.name);
+        }
     }
 
 

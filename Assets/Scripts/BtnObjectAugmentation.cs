@@ -27,10 +27,15 @@ public class BtnObjectAugmentation : MonoBehaviour
     private AnchorInstance anchorInstance;
     
     private OVRSpatialAnchor targetAnchor;
+    
+    private float pushUpPositionObject;
+    private float pushRotationPositionObject;
 
     public void Configure(string spanish, string english, AudioClip clip,GameObject objectAugmentation,
         OVRSpatialAnchor anchor,
-        AnchorInstance instance)
+        AnchorInstance instance,
+        float pushUpPosition,
+        float pushRotation)
     {
         labelSpanish = spanish;
         labelEnglish = english;
@@ -38,6 +43,8 @@ public class BtnObjectAugmentation : MonoBehaviour
         targetAnchor = anchor;
         anchorInstance = instance;
 
+        pushRotationPositionObject = pushRotation;
+        pushUpPositionObject = pushUpPosition;
 
         txtTitleLabel.text = labelEnglish;
         txtSubtitleLabel.text = subtextLock;
@@ -61,6 +68,13 @@ public class BtnObjectAugmentation : MonoBehaviour
         
         if (audioClip != null)
             audioSource.PlayOneShot(audioClip);
+        
+        Debug.Log("Botón presionado");
+        
+        if (TelemetryManager.Instance != null)
+        {
+            TelemetryManager.Instance.LogEvent("Click_Boton", this.gameObject.name);
+        }
     }
 
     private void UnlockButtonClick()
@@ -77,10 +91,19 @@ public class BtnObjectAugmentation : MonoBehaviour
 
     private void SpawnAugmentation()
     {
+        // 1. Calcular la posición desplazada
+        // Usamos transform.up para moverlo hacia "arriba" del botón y 
+        // transform.forward para moverlo hacia "adelante" (o ajustar según tu necesidad)
+        Vector3 spawnPosition = transform.position + (transform.up * pushUpPositionObject);
+
+        // 2. Calcular la rotación
+        // Aplicamos la rotación base del transform más el offset de rotación deseado
+        Quaternion spawnRotation = transform.rotation * Quaternion.Euler(0, pushRotationPositionObject, 0);
+        
         spawnedObject = Instantiate(
             augmentationPrefab,
-            transform.position,
-            transform.rotation
+            spawnPosition,
+            spawnRotation
         );
 
         // 🔹 Hacer que siga el mismo anchor
@@ -89,10 +112,12 @@ public class BtnObjectAugmentation : MonoBehaviour
         if (follower == null)
             follower = spawnedObject.AddComponent<AnchorFollower>();
 
+        
         follower.targetAnchor = targetAnchor;
-
+        follower.heightOffset = pushUpPositionObject > 0 ? pushUpPositionObject : 0.08f;      // Tu variable de altura
+        follower.rotationOffset = pushRotationPositionObject;
+        
         // Offset opcional para que no colisione con el botón
-        follower.heightOffset = 0.08f;
         follower.forwardOffset = 0.06f;
         
         // 🔹 GUARDAR referencia en AnchorInstance
