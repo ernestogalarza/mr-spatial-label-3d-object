@@ -242,7 +242,13 @@ public class ObjectAugmentationManager : BaseAnchorManager
 
     private void ChangeScene()
     {
-        SceneManager.LoadScene("SpatialLabelScene");
+        // 1. Registramos el fin de la condición B para el cálculo de Time on Task
+        if (TelemetryManager.Instance != null)
+        {
+            TelemetryManager.Instance.LogEvent("Fin_Prueba", "Condition_B_3DObject");
+        }
+        
+        SceneManager.LoadScene("NewMenuScene");
     }
 
     // =====================================================

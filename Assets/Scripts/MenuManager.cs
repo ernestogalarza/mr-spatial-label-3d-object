@@ -5,52 +5,41 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI lblParticipant;
     
-    //[SerializeField] private TMP_InputField _txtAngle;
-    [SerializeField] public TMP_InputField txtCurrentParticipant;
-    [SerializeField] public TextMeshProUGUI lblCurrentScene;
-    [SerializeField] public TMP_Dropdown dropdown;
-    private int currentParticipant = 0;
+    [Header("Input")]
+    public OVRInput.Button addButton = OVRInput.Button.One;
+    public OVRInput.Button minusButtons = OVRInput.Button.Two;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private int currentParticipant = 1;
+    
     void Start()
     {
-        
+        // Reflejamos el valor inicial en la UI
+        lblParticipant.text = currentParticipant.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LoadSpatialLabelScene()
     {
-        
-    }
-    
-    public void OnDropdownSceneChanged(int index)
-    {
-        Debug.Log("====>OPTION: " + index);
-
-        switch (index)
+        Debug.Log("==Spatial label");
+        if (TelemetryManager.Instance != null)
         {
-            case 0:
-                //Spatial label
-                Debug.Log("==TEST== Spatial label");
-              //  SceneManager.LoadScene("SpatialLabelScene");
-                break;
-
-            case 1:
-                //Object Augmented
-                Debug.Log("==TEST== Object Augmented");
-                SceneManager.LoadScene("ObjectAugmentationScene");
-                break;
-
-            case 2:
-                Debug.Log("==PILOT== Spatial label");
-                SceneManager.LoadScene("SpatialLabelScene");
-                break;
-
-            case 3:
-                Debug.Log("==PILOT== Object Augmented");
-                break;
+            TelemetryManager.Instance.currentCondition = "Condition_A_SpatialLabel";
+            TelemetryManager.Instance.LogEvent("Inicio_Prueba", "Escena_Cargada");
         }
+        SceneManager.LoadScene("SpatialLabelScene"); 
+    }
+
+    public void LoadObjectAugmentedScene()
+    {
+        Debug.Log("==Object Augmented");
+        // 2. Opcional pero recomendado: Registramos qué condición va a empezar
+        if (TelemetryManager.Instance != null)
+        {
+            TelemetryManager.Instance.currentCondition = "Condition_B_3DObject";
+            TelemetryManager.Instance.LogEvent("Inicio_Prueba", "Escena_Cargada");
+        }
+        SceneManager.LoadScene("ObjectAugmentationScene"); 
     }
 
     public void SettingParticipantId(String type)
@@ -59,19 +48,35 @@ public class MenuManager : MonoBehaviour
         switch (type)
         {
             case "1":
-                //adding 
                 currentParticipant++;
                 break;
 
             case "0":
-                currentParticipant--;
-                break;
-
-            default:
+                if(currentParticipant > 0) // Pequeña protección para evitar IDs negativos
+                    currentParticipant--;
                 break;
         }
         
+        lblParticipant.text = currentParticipant.ToString();
         
-        txtCurrentParticipant.text = currentParticipant.ToString();
+        // 2. ¡CRÍTICO! Actualizamos el TelemetryManager
+        if (TelemetryManager.Instance != null)
+        {
+            TelemetryManager.Instance.SetParticipantID(currentParticipant.ToString());
+            Debug.Log($"[MenuManager] ID de participante actualizado a: {currentParticipant}");
+        }
+    }
+    
+    // =====================================================
+    // INPUT
+    // =====================================================
+
+    void Update()
+    {
+        if (OVRInput.GetDown(addButton, OVRInput.Controller.LTouch))
+            SettingParticipantId("1");
+
+        if (OVRInput.GetDown(minusButtons, OVRInput.Controller.LTouch))
+            SettingParticipantId("0");
     }
 }

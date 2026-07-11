@@ -158,7 +158,13 @@ public class SpatialLabelManager : BaseAnchorManager
     
     private void ChangeScene()
     {
-        SceneManager.LoadScene("ObjectAugmentationScene");
+        // 1. Registramos el fin de la condición A para el cálculo de Time on Task
+        if (TelemetryManager.Instance != null)
+        {
+            TelemetryManager.Instance.LogEvent("Fin_Prueba", "Condition_A_SpatialLabel");
+        }
+        
+        SceneManager.LoadScene("NewMenuScene");
     }
     
     public async void CreateAnchorAsync()
